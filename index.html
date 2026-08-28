@@ -3,49 +3,255 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LavX - Self-Hosted &amp; Open Source Projects</title>
-  <meta name="description" content="Open-source self-hosting projects by LavX, including Bazarr+, a drop-in Bazarr replacement for Sonarr, Radarr, Plex, and Jellyfin subtitle management.">
+  <title>LavX &middot; open source subtitle, media and driver tools</title>
+  <meta name="description" content="Open-source projects by LavX: Bazarr+ subtitle automation, a media-stack installer, Windows drivers for the Steam Deck, an LLM translation API, and a few small services.">
   <link rel="canonical" href="https://lavx.github.io/">
-  <meta name="theme-color" content="#1a1a2e">
+
+  <meta name="theme-color" content="#0f1210">
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/brand/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="LavX - Self-Hosted & Open Source Projects">
-  <meta property="og:description" content="Open-source self-hosting projects by LavX, including Bazarr+ for Sonarr, Radarr, Plex, and Jellyfin subtitle management.">
+  <meta property="og:site_name" content="LavX">
+  <meta property="og:title" content="LavX &middot; open source subtitle, media and driver tools">
+  <meta property="og:description" content="Bazarr+ subtitle automation, a media-stack installer, Windows drivers for the Steam Deck, an LLM translation API, and a few small services.">
   <meta property="og:url" content="https://lavx.github.io/">
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #121125; color: #e8e8f0; line-height: 1.6;
-      min-height: 100vh; display: grid; place-items: center; padding: 24px;
-    }
-    main { max-width: 620px; width: 100%; }
-    h1 { font-size: clamp(2rem, 6vw, 3rem); letter-spacing: -0.02em; }
-    .accent { color: #f0a030; }
-    p.lead { color: #b8b8cc; margin: 16px 0 32px; font-size: 1.1rem; }
-    .card {
-      display: block; padding: 22px 24px; border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px; background: #1a1a2e; text-decoration: none; color: inherit;
-      transition: border-color .2s, transform .2s;
-    }
-    .card:hover { border-color: rgba(240,160,48,0.5); transform: translateY(-2px); }
-    .card h2 { font-size: 1.25rem; margin-bottom: 6px; }
-    .card span { color: #b0b1c8; font-size: 0.95rem; }
-    footer { margin-top: 36px; color: #8a8aa0; font-size: 0.9rem; }
-    footer a { color: #f0a030; text-decoration: none; }
-  </style>
+  <meta property="og:image" content="https://lavx.github.io/assets/brand/android-chrome-512x512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="LavX &middot; open source subtitle, media and driver tools">
+  <meta name="twitter:description" content="Bazarr+ subtitle automation, a media-stack installer, Windows drivers for the Steam Deck, an LLM translation API, and a few small services.">
+  <meta name="twitter:image" content="https://lavx.github.io/assets/brand/android-chrome-512x512.png">
+
+  <link rel="preload" href="assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "LavX",
+    "url": "https://lavx.github.io/",
+    "sameAs": ["https://github.com/LavX", "https://lavx.hu/"]
+  }
+  </script>
 </head>
 <body>
-  <main>
-    <h1>Lav<span class="accent">X</span></h1>
-    <p class="lead">Open-source, self-hosted projects.</p>
-    <a class="card" href="https://lavx.github.io/bazarr/">
-      <h2>Bazarr+ <span class="accent">&rarr;</span></h2>
-      <span>A drop-in Bazarr replacement for Sonarr, Radarr, Plex &amp; Jellyfin: Provider Hub plugin marketplace, AI translation, bulk operations, a subtitle editor, and zero telemetry.</span>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="container">
+    <!-- The official lockup, generated from the same mark-config.json the
+         company site draws from, with the MANAGED SYSTEMS subtitle removed
+         because this page is LavX the maintainer, not the company. -->
+    <a class="lockup" href="/" aria-label="LavX, home">
+      <img src="assets/brand/lavx-wordmark.svg" width="1016" height="280" alt="LavX" decoding="async">
     </a>
-    <footer>
-      Built by <a href="https://github.com/LavX" rel="me">LavX</a> on GitHub.
-    </footer>
-  </main>
+    <nav aria-label="Primary">
+      <a href="https://github.com/LavX" rel="me noopener">GitHub</a>
+      <a href="https://lavx.hu/" rel="noopener">lavx.hu</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero">
+    <div class="container">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span id="repo-count">Open source</span></p>
+      <h1>Tools I wrote because I needed them.</h1>
+      <p>Subtitle automation for media servers, an installer that wires a whole media stack in one
+        pass, Windows drivers for the Steam Deck, an <strong>LLM translation API</strong>, and a few
+        small services. Mostly Python, TypeScript and C#. All of it is on
+        <a href="https://github.com/LavX" rel="noopener">GitHub</a>.</p>
+    </div>
+  </div>
+
+  <section aria-labelledby="subs">
+    <div class="container">
+      <div class="sec-head">
+        <h2 id="subs">Subtitles and media</h2>
+        <span class="count">Eight projects</span>
+      </div>
+      <p class="sec-note">Most of this started with one problem: subtitles that arrive late, in the
+        wrong language, or timed to a different cut of the film.</p>
+
+      <div class="grid">
+        <a class="card lead-card" href="https://lavx.github.io/bazarr/">
+          <div class="card-top">
+            <h3>Bazarr+</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="bazarr" hidden></span>
+          </div>
+          <p>A hard fork of Bazarr for Sonarr, Radarr, Plex and Jellyfin. Provider Hub plugin
+            catalog, a multi-tenant subtitle API for other apps, bilingual subtitles, AI translation
+            through OpenRouter, multi-engine sync, and no telemetry.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/arrstack">
+          <div class="card-top">
+            <h3>arrstack</h3>
+            <span class="lang">TypeScript</span>
+            <span class="stars" data-repo="arrstack" hidden></span>
+          </div>
+          <p>Single-binary TUI installer that sets up and auto-wires a twelve-service media stack on
+            a clean Linux host in about ninety seconds.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/ai-subtitle-translator">
+          <div class="card-top">
+            <h3>ai-subtitle-translator</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="ai-subtitle-translator" hidden></span>
+          </div>
+          <p>Subtitle translation API over OpenRouter, covering 300+ models. Async job queue,
+            adaptive batch sizing, live progress and cost tracking.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/bazarr-provider-catalog">
+          <div class="card-top">
+            <h3>bazarr-provider-catalog</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="bazarr-provider-catalog" hidden></span>
+          </div>
+          <p>Sixty-plus subtitle scrapers as installable plugins, so a broken provider is fixed
+            without waiting for a release. Stdlib-only, hash-locked, worker-isolated.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/opensubtitles-scraper">
+          <div class="card-top">
+            <h3>opensubtitles-scraper</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="opensubtitles-scraper" hidden></span>
+          </div>
+          <p>Self-hosted OpenSubtitles.org scraper with a Bazarr-compatible API, replacing the
+            provider that was removed. Handles Cloudflare and Anubis proof-of-work.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/bazarr-mcp">
+          <div class="card-top">
+            <h3>bazarr-mcp</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="bazarr-mcp" hidden></span>
+          </div>
+          <p>Model Context Protocol server for Bazarr+. Lets an AI assistant search subtitles, find
+            a quote across episodes and operate the instance.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/jellyfin-plugin-bazarr-plus">
+          <div class="card-top">
+            <h3>jellyfin-plugin-bazarr-plus</h3>
+            <span class="lang">C#</span>
+            <span class="stars" data-repo="jellyfin-plugin-bazarr-plus" hidden></span>
+          </div>
+          <p>Jellyfin 10.11+ subtitle provider that proxies search and download to your own Bazarr+
+            over its OpenSubtitles-compatible API.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/vlsub-bazarr-plus">
+          <div class="card-top">
+            <h3>vlsub-bazarr-plus</h3>
+            <span class="lang">Lua</span>
+            <span class="stars" data-repo="vlsub-bazarr-plus" hidden></span>
+          </div>
+          <p>VLC extension that pulls subtitles from your Bazarr+ instead of a public provider.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="deck">
+    <div class="container">
+      <div class="sec-head">
+        <h2 id="deck">Windows on handhelds</h2>
+        <span class="count">Two projects</span>
+      </div>
+      <p class="sec-note">Running Windows on a Steam Deck means fighting the driver set. These are
+        the two pieces that were missing.</p>
+
+      <div class="grid">
+        <a class="card" href="https://github.com/LavX/deck-driver-manager">
+          <div class="card-top">
+            <h3>deck-driver-manager</h3>
+            <span class="lang">C#</span>
+            <span class="stars" data-repo="deck-driver-manager" hidden></span>
+          </div>
+          <p>Pick between Valve's OEM graphics driver and a locally patched AMD build, and keep the
+            rest of the Deck's drivers straight.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/DeckLux">
+          <div class="card-top">
+            <h3>DeckLux</h3>
+            <span class="lang">PowerShell</span>
+            <span class="stars" data-repo="DeckLux" hidden></span>
+          </div>
+          <p>Open ambient-light sensor driver for the Steam Deck on Windows, so auto-brightness
+            works at all.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="small">
+    <div class="container">
+      <div class="sec-head">
+        <h2 id="small">Small services</h2>
+        <span class="count">Three projects</span>
+      </div>
+      <p class="sec-note">Tiny APIs, built for the moments an interface has to say something and there is
+        nothing useful to say.</p>
+
+      <div class="grid">
+
+        <a class="card" href="https://github.com/LavX/yes-as-a-service-py">
+          <div class="card-top">
+            <h3>yes-as-a-service</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="yes-as-a-service-py" hidden></span>
+          </div>
+          <p>Returns a random affirmation. The counterpart to the original no-as-a-service.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/error-as-a-service">
+          <div class="card-top">
+            <h3>error-as-a-service</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="error-as-a-service" hidden></span>
+          </div>
+          <p>Returns a random error message, for when you need a graceful way to fail.</p>
+        </a>
+
+        <a class="card" href="https://github.com/LavX/quip-as-a-service">
+          <div class="card-top">
+            <h3>quip-as-a-service</h3>
+            <span class="lang">Python</span>
+            <span class="stars" data-repo="quip-as-a-service" hidden></span>
+          </div>
+          <p>Returns a random quip, built for loading screens and placeholders.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Open source, maintained by LavX. Commercial work is at
+      <a href="https://lavx.hu/" rel="noopener">LavX Managed Systems</a>.</p>
+    <ul>
+      <li><a href="https://github.com/LavX" rel="me noopener">GitHub</a></li>
+      <li><a href="https://lavx.github.io/bazarr/">Bazarr+ docs</a></li>
+      <li><a href="https://lavx.hu/" rel="noopener">lavx.hu</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/stars.js" defer></script>
 </body>
 </html>

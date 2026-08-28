@@ -1,0 +1,173 @@
+/* ===========================================================================
+   LavX, open source index.
+
+   Visual language is LavX Managed Systems (lavx.hu/brand), applied to a
+   personal project index rather than to the company: same paper, ink, gold and
+   type, no MANAGED SYSTEMS lockup and no trust-tier or compliance framing,
+   because neither belongs on a page that just lists repositories.
+
+   Every colour below is copied from the brand tokens, not sampled by eye.
+   =========================================================================== */
+
+@font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Medium.woff2')  format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Bold.woff2')    format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('../fonts/JetBrainsMono-Medium.woff2')  format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url('../fonts/JetBrainsMono-Bold.woff2')    format('woff2'); font-weight: 700; font-display: swap; }
+
+:root {
+  /* brand tokens, verbatim */
+  --bg: #0f1210;
+  --surface: #171b17;
+  --surface-sunken: #0f0c07;
+  --ink: #e9e4d6;
+  --muted: #98998b;
+  --gold: #c68f44;
+  --gold-strong: #dbb46b;
+  --ember: #ce6e2c;
+  --border: #262b23;
+  --border-strong: #363c30;
+
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --body: 'Satoshi', system-ui, -apple-system, sans-serif;
+
+  /* brand scale: Display 80, H1 60, H2 40, H3 24, Body 16, Meta 11 */
+  --t-display: clamp(2.75rem, 7vw, 5rem);
+  --t-h1: clamp(2.25rem, 5.2vw, 3.75rem);
+  --t-h2: clamp(1.5rem, 3vw, 2.5rem);
+  --t-h3: 1.5rem;
+  --t-meta: 0.6875rem;
+
+  /* The brand specifies a 66-character measure. NOT --measure: 66ch: the ch
+     unit is the advance of the digit zero, and Satoshi's zero is far wider than
+     its average lowercase letter, so 66ch of running prose measured 96 real
+     characters. Calibrated against rendered text to land near the 66 the brand
+     actually means. */
+  --measure: 45ch;
+  --radius: 0.5rem;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-strong); }
+:focus-visible { outline: 2px solid var(--gold-strong); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--gold); color: var(--bg); }
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+@media (max-width: 640px) { .container { padding: 0 20px; } }
+/* Below 340px the card grid's 320px minimum plus the container padding is wider
+   than the viewport, so the whole page scrolled sideways. */
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+.skip {
+  position: absolute; left: 16px; top: 12px; z-index: 20;
+  padding: 10px 16px; border-radius: var(--radius);
+  background: var(--gold-strong); color: var(--bg);
+  font: 500 0.875rem var(--mono);
+  transform: translateY(-200%);
+}
+.skip:focus { transform: none; color: var(--bg); }
+
+/* --- masthead ------------------------------------------------------------- */
+.masthead { border-bottom: 1px solid var(--border); }
+.masthead .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+/* The lockup is the official asset with the MANAGED SYSTEMS subtitle removed,
+   generated from the same mark-config the company site draws from. Do not
+   redraw it, do not recolour the blade. */
+.lockup { display: block; }
+.lockup img { display: block; width: auto; height: 30px; }
+.masthead nav { display: flex; gap: 28px; font: 500 0.875rem var(--mono); }
+.masthead nav a { color: var(--muted); }
+.masthead nav a:hover { color: var(--ink); }
+@media (max-width: 560px) {
+  .masthead .container { height: 64px; }
+  .lockup img { height: 24px; }
+  .masthead nav { gap: 18px; font-size: 0.8125rem; }
+}
+
+/* --- hero ----------------------------------------------------------------- */
+.hero { padding: clamp(56px, 11vw, 120px) 0 clamp(40px, 7vw, 72px); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin: 0 0 22px;
+  font: 500 var(--t-meta) var(--mono); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted);
+}
+/* One of the page's few saturated moments, and it means something: the count
+   beside it is fetched, not typed. */
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ember); flex: none; margin-right: 3px; }
+h1 {
+  margin: 0; max-width: 18ch;
+  font: 700 var(--t-h1)/1.05 var(--mono); letter-spacing: -0.03em;
+}
+.hero p {
+  margin: 24px 0 0; max-width: var(--measure);
+  color: var(--muted); font-size: 1.0625rem;
+}
+.hero strong { color: var(--ink); font-weight: 500; }
+
+/* --- sections ------------------------------------------------------------- */
+section { padding: clamp(40px, 6vw, 64px) 0; border-top: 1px solid var(--border); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 8px; }
+@media (max-width: 560px) {
+  /* beside a heading that already wraps, the count wrapped too and read as a
+     second heading; it belongs on its own line at this width */
+  .sec-head { display: block; }
+  .sec-head .count { display: block; margin-top: 6px; }
+}
+h2 { margin: 0; font: 500 var(--t-h3) var(--mono); letter-spacing: -0.01em; }
+.sec-note { margin: 0 0 28px; max-width: var(--measure); color: var(--muted); font-size: 0.9375rem; }
+.count { font: 400 var(--t-meta) var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* --- project cards -------------------------------------------------------- */
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); }
+.card {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--ink);
+  transition: border-color 0.18s var(--ease), background 0.18s var(--ease);
+}
+.card:hover { border-color: var(--border-strong); background: #1a1f1a; color: var(--ink); }
+.card-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.card h3 { margin: 0; font: 500 1.0625rem var(--mono); letter-spacing: -0.01em; flex: 1; min-width: 0; }
+.card:hover h3 { color: var(--gold-strong); }
+.card p { margin: 0; color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
+
+.lang, .stars {
+  flex: none; font: 400 var(--t-meta) var(--mono); letter-spacing: 0.08em;
+  color: var(--muted); white-space: nowrap;
+}
+.lang { padding: 3px 8px; border: 1px solid var(--border-strong); border-radius: 3px; text-transform: uppercase; }
+.stars { font-variant-numeric: tabular-nums; }
+.stars[hidden] { display: none; }
+
+/* the flagship gets the width, because it is the reason most people arrive */
+.grid > .lead-card { grid-column: 1 / -1; }
+.lead-card h3 { font-size: 1.25rem; }
+.lead-card p { font-size: 1rem; max-width: var(--measure); }
+
+/* --- footer --------------------------------------------------------------- */
+footer { border-top: 1px solid var(--border); padding: 48px 0 64px; color: var(--muted); font-size: 0.9375rem; }
+footer .container { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: baseline; justify-content: space-between; }
+footer ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; margin: 0; padding: 0; font: 500 0.875rem var(--mono); }
+footer p { margin: 0; max-width: 46ch; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
